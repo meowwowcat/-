@@ -33,9 +33,16 @@ for (file, label) in Iterators.drop(file_labels, 1)
 end
 
 f(x) = (6.6-7.8)/(1.0-10.0)* (x-1.0) +6.6
-plot!(f)
+plot!(f,label=:none)
 g(x) = (14.4-12.2)/(10-1) * (x-1) + 12.2
-plot(g)
+plot!(g,label=:none)
+
+h(x) = (25 - 19.0)/ (10-1) * (x-1) + 19
+plot!(h,label=:none)
+I(x) = (26.4 - 22.2) / (10 -1) * (x- 1) + 22.2
+plot!(I,label=:none)
 
 # グラフ表示
 display(plt)
+
+savefig("kou2.png")
