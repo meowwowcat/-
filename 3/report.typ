@@ -83,7 +83,7 @@ $
 測定したものをグラフにプロットすると@3 が得られた.
 これから0.50(V)以降で急激に値が上昇している.
 #figure(
-  image("/figures/test1.png",width: 80%),
+  image("/figures/exp1_fig.png",width: 80%),
   caption: [I_BとV_BEの関係(測定値と補正値)]
 )<3>
 
@@ -92,7 +92,7 @@ $
 ここで.各々のグラフの6(A)の値を取り出し,$I_C,I_B$の関係は @5 となる.
 ここでJuliaをもちいて,4つの組の値に対して,回帰直線を求めて,
 傾きを求めると,
-#read("/dat/h_fE_txt.txt")
+#read("/dat/h_FE/h_fE_txt.txt")
 となり,
 $
 h_(F E)=173
