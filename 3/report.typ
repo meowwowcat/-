@@ -1,5 +1,11 @@
 #set text(font:"Noto Serif CJK JP")
 
+
+#show figure.where(kind: table): set figure(supplement: "Table")
+#show figure.where(kind: image): set figure(supplement: "Fig. ")
+
+
+
 #set heading(numbering:"1.")
 #set page(numbering:"1")
 #set math.equation(numbering:"(1)")
