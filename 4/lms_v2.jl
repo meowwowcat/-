@@ -6,6 +6,8 @@ using Plots
 using DataFrames
 using Printf
 
+
+
 λ = 5.89*10^(-4)
 
 # データの読み込み
@@ -69,12 +71,12 @@ end
 
 plt = plot(
     x,y,
-    label = "",
-    xlabel="Number",
-    ylabel="\$l^2\$",
+    xlabel="Number:m",
+    ylabel="\$l_m^2\$",
+    label="Mesured Line",
     marker=:circle
     
 )
-plot!(x, A .* x .+ B, label="Weighted Fit Line", lw=2)
+plot!(x, A .* x .+ B, label="Fit Line", lw=2)
 
 savefig( "figures/fig.pdf")
