@@ -72,7 +72,7 @@ end
 plt = plot(
     x,y,
     xlabel="Number:m",
-    ylabel="\$l_m^2\$",
+    ylabel="\$l_m^2\$[(mm)\$^2\$]",
     label="Mesured Line",
     marker=:circle
     
@@ -80,3 +80,4 @@ plt = plot(
 plot!(x, A .* x .+ B, label="Fit Line", lw=2)
 
 savefig( "figures/fig.pdf")
+savefig( "figures/fig.png")
