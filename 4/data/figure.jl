@@ -12,9 +12,10 @@ y = df[:,4]
 plt = plot(x,y,
        label=:none,
        xlabel="Number",
-       ylabel="\$l^2\$"
+       ylabel="\$l^2\$",
+       marker=:circle
       )
 
 
-savefig("fig.png")
-savefig("fig.pdf")
+savefig("fig-1.png")
+savefig("fig-1.pdf")
