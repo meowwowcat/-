@@ -2,11 +2,13 @@
 
 
 #set heading(numbering:"1.")
-#set page(numbering:"-1-"
-)
+#set page(numbering:"-1-")
 #set math.equation(numbering:"(1)",supplement: [Eq.])
 
+
 #import "@preview/physica:0.9.5": *
+#import "@preview/codelst:2.0.2": sourcefile
+
 
 #show figure.where(kind: table): set figure(supplement: "Table")
 #show figure.where(kind: image): set figure(supplement: "Fig. ")
@@ -98,14 +100,107 @@ $
 - 最後に,位置の読み取り誤差を求めるために,$m=3$の環の一方の位置を10回測定する.
 
 = 結果
-環番号$m$と環の直径の二乗$l^2_m$の関係は
+環番号$m$と環の直径の二乗$l^2_m$の関係は@fig_5 となる.
 
 #figure(
   image("figures/fig-1.png",width: 80%),
-  caption:[]
+  caption:[環番号と$l^2_m$の関係]
+)<fig_5>
+
+となった.ここで最小二乗法を用いて$A = 4 lambda R$ $B = C $を求めると,
+$
+A = 4 lambda R &=  3.96 plus.minus 0.00\
+B = C &=1.00
+$
+となるので,曲率半径$R$は$lambda$を定めると決まる.今ナトリウムランプの波長は
+$ 
+ lambda = 5.89 times 10^(-4) ["mm"]
+$
+を用いる@lambda .
+$
+  R = 1.68 times 10^3 plus.minus 1.56 ["mm"]
+$
+が得られた.
+
+#figure(
+  image("figures/fig.png",width:80%),
+ caption:[測定値と最小二乗法を用いたfit line]
+)<fig-6>
+
+= 考察
+曲率半径の値の誤差は曲率半径の0.09%の誤差が含まれてた.
+環番号と$sigma_i$の値は@table-1 に表す.
+
+
+#figure(
+  caption:figure.caption(
+    position: top,
+    [環番号と直径の2乗の誤差]),
+table(
+  
+  columns: 15,
+  stroke: (x: none),
+ table.header(
+ [1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15]
+ ),
+[#text(size:8pt)[0.0280]],
+[#text(size:8pt)[0.0395]],
+[#text(size:8pt)[0.0465]],
+[#text(size:8pt)[0.0530]],
+[#text(size:8pt)[0.0595]],
+[#text(size:8pt)[0.0650]],
+[#text(size:8pt)[0.0695]],
+[#text(size:8pt)[0.0752]],
+[#text(size:8pt)[0.0789]],
+[#text(size:8pt)[0.0833]],
+[#text(size:8pt)[0.0866]],
+[#text(size:8pt)[0.0900]],
+[#text(size:8pt)[0.0937]],
+[#text(size:8pt)[0.0970]],
+[#text(size:8pt)[0.100]],
 )
+)<table-1>
+$sigma_i$は$l^2_m$に比例するので,環番号が大きくなるにつれて誤差が大きくなる.そのため,$delta A$も大きくなる.以上のことから,$delta R$の要因は,$sigma_i$のとり方から発生するものである.
 
-
-
-
+@table-2 において$sigma' - sigma$を見ると数値が大きくなっている.
+正しく測定されていれば$sigma,sigma'$は同程度となることから,測定が間違っている,あるいは$sigma,sigma'$の計算が間違っていることになり,誤差推定の妥当性がかなり低いものとなっている.
+#figure(
+  caption:figure.caption(
+    position: top,
+    [$sigma,sigma'$の差の絶対値]),
+table(
+  
+  columns: 15,
+  stroke: (x: none),
+ table.header(
+ [1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15]
+ ),
+[#text(size:8pt)[0.32]],
+[#text(size:8pt)[0.28]],
+[#text(size:8pt)[0.066]],
+[#text(size:8pt)[0.19]],
+[#text(size:8pt)[0.13]],
+[#text(size:8pt)[0.27]],
+[#text(size:8pt)[0.19]],
+[#text(size:8pt)[0.79]],
+[#text(size:8pt)[0.28]],
+[#text(size:8pt)[0.57]],
+[#text(size:8pt)[0.11]],
+[#text(size:8pt)[0.54]],
+[#text(size:8pt)[0.47]],
+[#text(size:8pt)[0.61]],
+[#text(size:8pt)[1.2]],
+)
+)<table-2>
+= 使用したプログラム
+juliaのコードです.
+#sourcefile(read("lms_v2.jl"),file:"lms_v2.jl")
+#figure(
+  sourcefile(read("data/data1.csv"),file:"data/data1.csv"),
+  caption:[測定した値]
+)
+#figure(
+  sourcefile(read("data/data2.csv"),file:"data/data2.csv"),
+  caption:[測定した10回の誤差]
+)
 #bibliography("bib/bib.bib",title:"参考文献")

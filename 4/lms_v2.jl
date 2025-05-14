@@ -25,7 +25,7 @@ N_err = length(err)
 
 #l2
 
-l = a_l - a_r
+l = a_r - a_l
 y = l .* l
 
 # 標準偏差σ_a
@@ -37,6 +37,7 @@ d_err = err .- ave_err
 σ_i = 2 .* sqrt(2) .*σ_a .* l
 
 σ2_i = σ_i .^2
+
 
 
 # 最小二乗法
@@ -53,19 +54,44 @@ denominator = sum_x2_σ2 * sum_1_σ2 - sum_x_σ2^2
 
 A = (sum_xy_σ2 * sum_1_σ2 - sum_x_σ2 * sum_y_σ2) / denominator
 B = (sum_x2_σ2 * sum_y_σ2 - sum_x_σ2 * sum_xy_σ2) / denominator
+δA = sqrt( (sum_1_σ2) / denominator)
+
 
 R = A /(4 * λ)
+R_δ = δA / (4 * λ)
+# σ'
+
+sigma = y .- A .* x .- B 
+
+sig = sigma - σ_i
 
 println("A = $A")
+println("δA = $δA")
 println("B = $B")
-println("R = $R")
+println("R = $R ± $R_δ")
 
 open("data/data3.txt","w") do io
-    println(io, "A = $A")
+    println(io, "A_t = $A ± $δA")
     println(io, "B = $B")
     println(io, "R = $R")
+    println(io, "R_t = $R ± $R_δ")
 end
+#sugukesu
+open("data/data4.txt","w") do io
+    println(io, "A = $A")
+    println(io, "  δA = $δA  ")
+    println(io, " R = $R")
+    println(io, "δR = $R_δ")
 
+    println(io, "sigma = $sigma")
+
+end
+# csvの作成
+df_3 = DataFrame(x = x, σ_i = σ_i)
+CSV.write("output/out_1.csv", df_3)
+
+df_3 = DataFrame(sig = sig)
+CSV.write("output/out_2.csv", df_3)
 
 #グラフのプロット
 

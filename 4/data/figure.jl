@@ -12,7 +12,7 @@ y = df[:,4]
 plt = plot(x,y,
        label=:none,
        xlabel="Number",
-       ylabel="\$l^2\$",
+       ylabel="\$l^2\$[(mm)\$^2\$]",
        marker=:circle
       )
 
