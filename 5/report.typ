@@ -81,7 +81,9 @@ $ sourse noise/bin/activate
 
 = Pythonを利用したデータ解析
 == 課題A-1,2
+
 #sourcefile(read("code/a_1.py"),file:"code/a_1.py")
+
 === 説明
 このコードはcsvファイルから電圧データを読み込み,実験データの基本的な量(平均値,標準偏差,不偏標準偏差)を計算し,時間経過に沿った電圧の変化をグラフに表示させるコードです.
 - pandas,matplotlib,numpyというモジュールをインポートし,pandas,matplotlib,numpyをそれぞれpd,plt,npと略す.
@@ -94,6 +96,24 @@ $ sourse noise/bin/activate
 - plt.histを使って,ヒストグラムを描写する.
 
 == 課題A-4
+#sourcefile(read("code/a_4.py"),file:"code/a_4.py")
+このコードは,測定された電圧データの分布をヒストグラムとして可視化し,得られたデータにたいし,正規分布をフィッティングしている.
+
+== 課題A-5
+#sourcefile(read("code/a_5.py"),file:"code/a_5.py")
+このコードは電圧データを一定の点数ごと(5,10,20,50,100,200)に分割し,それぞれのブロックごとに平均値を求める.ここで,平均値の標準偏差を求め,分割数を変化させたときの不偏標準偏差の変化を調べる.
+== 課題B-1
+#sourcefile(read("code/b_1.py"),file:"code/b_1.py")
+
+= 結果
+
+#figure(
+  image("figure/fig1.png"),
+  caption:[課題A-1:電圧と時間の関係]
+)<fig-1>
+@fig-1 から電圧の値は時間に対して,大きな誤差はなく比較的平均値に収まっている.
+
+
 
 
 #bibliography("bib/bib.bib",title:"参考文献")

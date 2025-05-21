@@ -15,6 +15,11 @@ data_ave = np.average(data)
 data_sig = np.std(data)
 data_usig = np.std(data, ddof=1)
 
+with open('data/a_1.txt', 'a') as file:
+    file.write('data_num \n')
+    file.write('data_sig \n')
+    file.write
+
 
 x_data = np.arange(1, data_num+1, 1)
 
