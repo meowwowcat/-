@@ -50,7 +50,7 @@ plt.xlabel('Time series data', fontsize=14) #X軸のラベル
 plt.ylabel('Voltage / V', fontsize=14)        #Y軸のラベル
 plt.grid(ls='--')
 
-plt.savefig('fig6.png')
+plt.savefig('figure/fig6.png')
 
 #___________________________________________________________________________________#
 
@@ -116,4 +116,6 @@ plt.ylabel(r'$\rm ydata$', fontsize=14)
 plt.legend(fontsize=14)
 plt.grid(ls='--')
 
-plt.savefig('fig.png')
+
+
+plt.savefig('figure/fig.png')
