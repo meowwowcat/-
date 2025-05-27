@@ -112,7 +112,7 @@ y_fit_data = a * xdata + b
 plt.errorbar(xdata, ydata, yerr=sigma, fmt='ko', label='data')
 plt.plot(xdata, y_fit_data, 'r-', label='fit results')
 plt.xlabel(r'$\rm xdata$', fontsize=14)
-plt.ylabel(r'$\rm ydata$', fontsize=14)
+plt.ylabel(r'voltage [V]', fontsize=14)
 plt.legend(fontsize=14)
 plt.grid(ls='--')
 

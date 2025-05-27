@@ -1,0 +1,1 @@
+Number of data = {data_num}Maximum value = {data_max}Minimum value = {data_min}Average value of data = {data_ave}Standard Deviation = {data_sig}Unbiased Standard Deviation = {data_usig}

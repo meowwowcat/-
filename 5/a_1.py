@@ -15,10 +15,15 @@ data_ave = np.average(data)
 data_sig = np.std(data)
 data_usig = np.std(data, ddof=1)
 
-with open('data/a_1.txt', 'a') as file:
-    file.write('data_num \n')
-    file.write('data_sig \n')
-    file.write
+
+
+#それぞれの値を表示する。
+print(f"Number of data = {data_num}")               #データの個数
+print(f"Maximum value = {data_max}")                #データの最大値
+print(f"Minimum value = {data_min}")                #データの最小値
+print(f"Average value of data = {data_ave}")        #平均値
+print(f"Standard Deviation = {data_sig}")           #標準偏差
+print(f"Unbiased Standard Deviation = {data_usig}") #不偏標準偏差
 
 
 x_data = np.arange(1, data_num+1, 1)

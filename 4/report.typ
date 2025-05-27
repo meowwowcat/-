@@ -1,4 +1,4 @@
-#set text(font:"Noto Serif CJK JP")
+#set text(font:("Latin Modern Math","Noto Serif CJK JP"))
 
 
 #set heading(numbering:"1.")
@@ -12,6 +12,7 @@
 
 #show figure.where(kind: table): set figure(supplement: "Table")
 #show figure.where(kind: image): set figure(supplement: "Fig. ")
+#show math.equation: set text(font: "Latin Modern Math")
 
 #let is-page(n) = counter(page).get().first() == n
 
