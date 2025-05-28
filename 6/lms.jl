@@ -5,7 +5,7 @@ using Printf
 
 df = CSV.read("data/data3.csv",DataFrame)
 
-n = [0,1,2,3,4,5,6,7]
+n = df[:,1]
 y_1 = df[:,2]
 y_2 = df[:,3]
 
@@ -31,8 +31,8 @@ E = E * 10^6 #=mm^2 -> m^2=#
 
 sigma_a = 1 * sqrt(N / delta)
 
-delta_E = sqrt( (1/d)^2 + (3 * 1 / l)^2 + (sigma_a / a)^2+ (0.05/A)^2 + (3 *0.05/B)^2 + (0.05 / C)^2)
-delta_E = delta_E * 10^6
+delta_E =E * sqrt( (1/d)^2 + (3 * 1 / l)^2 + (sigma_a / a)^2+ (0.05/A)^2 + (3 *0.05/B)^2 + (1 / C)^2)
+# delta_E = delta_E * 10^6
 
 
 open("data/txt3.txt","w") do io
@@ -52,4 +52,4 @@ plt = plot(F,Y,
      )
 plot!(F,a .* F .+b,label="Fit Line",lw=2)
 
-savefig(plt,"figure/plt3.pdf")
+savefig(plt,"figure/plt3.png")
