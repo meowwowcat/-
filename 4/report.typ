@@ -16,10 +16,45 @@
 
 #let is-page(n) = counter(page).get().first() == n
 
+
+#import "@preview/pillar:0.3.2"
+
+#set table(inset: (x: 0.8em, y: 0.6em), stroke: none)
+#set table.hline(stroke: 0.6pt)
+#set table.vline(stroke: 0.6pt)
+
+#let mytable(header, cells, cols: none) = {
+    if cols == none {
+        table(
+            columns: header.len(),
+            table.hline(),
+            table.header(..header.flatten()),
+            table.hline(),
+            ..cells,
+            table.hline(),
+        )
+    }
+    else {
+        table(
+            ..pillar.cols(cols),
+            columns: header.len(),
+            table.hline(),
+            table.header(..header.flatten()),
+            table.hline(),
+            ..cells,
+            table.hline(),
+        )
+    }
+}
+
+
+
+
+
 #align(center)[#text(size:18pt)[ニュートンリング]]
 #align(right)[24cb062h 菅原明]
 #align(right)[共同実験者:24cb077k 原口優希]
-
+#align(center)[#text(red)[測定値は6章にあります]]
 = 目的
 レンズの凸面と平面ガラスとの間にできた空気の薄層の内外面で反射した光の鑑賞出できたニュートンリングと呼ばれる一群の同心円状の環を用いて凸レンズの曲率半径を求める.
 @教科書
@@ -110,8 +145,8 @@ $
 
 となった.ここで最小二乗法を用いて$A = 4 lambda R$ $B = C $を求めると,
 $
-A = 4 lambda R &=  3.96 plus.minus 0.00\
-B = C &=1.00
+A = 4 lambda R &=  3.96 plus.minus 0.00#text(red)[ [("mm")^2]]\
+B = C &=1.00 #text(red)[[("mm")^2]] 
 $
 となるので,曲率半径$R$は$lambda$を定めると決まる.今ナトリウムランプの波長は
 $ 
@@ -161,10 +196,11 @@ table(
 [#text(size:8pt)[0.100]],
 )
 )<table-1>
-$sigma_i$は$l^2_m$に比例するので,環番号が大きくなるにつれて誤差が大きくなる.そのため,$delta A$も大きくなる.以上のことから,$delta R$の要因は,$sigma_i$のとり方から発生するものである.
+$sigma_i$は$l^2_m$に比例するので,環番号が大きくなるにつれて誤差が大きくなる.そのため,$delta A$も大きくなる.以上のことから,$delta R$の要因は,$sigma_i$#text(red)[の環番号に比例することから]発生するものである.
 
 @table-2 において$sigma' - sigma$を見ると数値が大きくなっている.
 正しく測定されていれば$sigma,sigma'$は同程度となることから,測定が間違っている,あるいは$sigma,sigma'$の計算が間違っていることになり,誤差推定の妥当性がかなり低いものとなっている.
+#text(red)[$sigma_i= 2sqrt(2)sigma_a l_i$はi番目のデータ対する誤差であるのに対し,$sigma'_i=abs(y_i - A x -B)$は理論値と測定値の差に着目している]
 #figure(
   caption:figure.caption(
     position: top,
@@ -193,6 +229,23 @@ table(
 [#text(size:8pt)[1.2]],
 )
 )<table-2>
+= #text(red)[測定値]
+#figure(caption:figure.caption(
+    position: top,
+    [測定値]),
+    mytable(
+        ([番号], [rの右側], [rの左側], [$l^2$の値]),
+        (csv("data/data1_1.csv").flatten()),
+    ),
+)
+#figure(caption:figure.caption(
+    position: top,
+    [誤差の値]),
+    mytable(
+        ([番号],[誤差]),
+        (csv("data/data2.csv").flatten()),
+    ),
+)
 = 使用したプログラム
 juliaのコードです.
 #sourcefile(read("lms_v2.jl"),file:"lms_v2.jl")

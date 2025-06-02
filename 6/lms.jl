@@ -22,7 +22,7 @@ b = (sum(F .^2) * sum(Y) - sum(F .* Y) * sum(F)) / delta
 d = 832
 l = 400
 A = 16
-B = 5.008
+B = 5.004
 C = 35.2
 
 E = (d * l^3) / (2 * a * A * B^3 * C)
@@ -31,7 +31,7 @@ E = E * 10^6 #=mm^2 -> m^2=#
 
 sigma_a = 1 * sqrt(N / delta)
 
-delta_E =E * sqrt( (1/d)^2 + (3 * 1 / l)^2 + (sigma_a / a)^2+ (0.05/A)^2 + (3 *0.05/B)^2 + (1 / C)^2)
+delta_E =E * sqrt( (1/d)^2 + (3 * 1 / l)^2 + (sigma_a / a)^2+ (0.05/A)^2 + (3 *0.05/B)^2 + (0.05 / C)^2)
 # delta_E = delta_E * 10^6
 
 

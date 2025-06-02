@@ -53,7 +53,7 @@ delta_E = E * sqrt(
     (sigma_a / a)^2 + 
     (0.05 / A)^2 + 
     (3 * 0.05 / B)^2 + 
-    (0.05 / C)^2
+    (1 / C)^2
 )
 delta_E = delta_E * 10^6  # 単位変換
 

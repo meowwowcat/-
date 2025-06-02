@@ -146,7 +146,7 @@ $ b = (sum_i F^2[i] dot sum_i Y[i] - sum_i (F[i] dot Y[i] )dot sum_i F[i]) / Del
 - 50行目 誤差の計算
 $ (delta E)/E = sqrt( ((delta d)/d)^2 + (3 (delta l)/l)^2 + ((delta a)/a)^2 + ((delta A)/A)^2 +(3 (delta B)/B)^2 + ((delta C)/C)^2)
 $
-ただし今回は$delta d = delta l =1["mm"],delta A =delta B = delta C = 0.05["mm"]$とする.
+ただし今回は$delta d = delta l =delta C= 1["mm"],delta A =delta B =0.05["mm"]$とする.
 - 測定値の図のプロット
 - 77行目 フッティング直線のプロット(上書き)
 - 80行目 図の保存
@@ -172,7 +172,7 @@ $
 ヤング率(絶対値)は
 $
 E &= 1.64 dot 10^11 ["N/m"^2]\
-E plus.minus Delta E &= 1.64 dot 10^11 plus.minus 7.62 dot 10^9 ["N/m"^2]
+E plus.minus Delta E &= 1.64 dot 10^11 plus.minus 8.93 dot 10^9 ["N/m"^2]
 $ 
 となる.
 == 試料棒B
@@ -193,8 +193,8 @@ $
 
 ヤング率(絶対値)は
 $
-E &= 8.23 dot 10^10 ["N/m"^2]\
-E plus.minus Delta E &= 8.23 dot 10^10 plus.minus 2.93 dot 10^9 ["N/m"^2]
+E &= 8.25 dot 10^10 ["N/m"^2]\
+E plus.minus Delta E &= 8.25 dot 10^10 plus.minus 3.75 dot 10^9 ["N/m"^2]
 $ 
 となる.
 == 試料棒C
@@ -217,7 +217,7 @@ $
 ヤング率(絶対値)は
 $
 E &= 1.07 dot 10^11 ["N/m"^2]\
-E plus.minus Delta E &= 1.07 dot 10^11 plus.minus 4.10 dot 10^9 ["N/m"^2]
+E plus.minus Delta E &= 1.07 dot 10^11 plus.minus 5.16 dot 10^9 ["N/m"^2]
 $ 
 となる.
 #pagebreak()
@@ -237,7 +237,7 @@ table(
   [鋳鋼], [172,000 ～ 212,000],
   [特殊鋼], [195,000 ～ 206,000],
   [銅鋳物], [82,000 ～ 88,000],
-  [銅合金（一般）], [103,000 ～ 119,000],
+  [銅棒], [103,000 ～ 119,000],
   [黄銅], [69,000 ～ 98,000],
   [青銅鋳物], [79,000 ～ 82,000],
   [リン青銅], [93,000 ～ 103,000],
